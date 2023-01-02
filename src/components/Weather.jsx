@@ -24,7 +24,7 @@ const Weather = ({ data }) => {
           </div>
           <div className="temperatureRow">
             <span className="tempLabel">Feels like</span>
-            <span className="tempValue">{Math.round(data.main.feels)}°C </span>
+            <span className="tempValue">{Math.round(data.main.feels_like)}°C </span>
           </div>
           <div className="temperatureRow">
             <span className="tempLabel">Wind</span>

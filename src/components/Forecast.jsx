@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./Style.css";
 import {
   Accordion,
   AccordionItem,
@@ -21,24 +21,23 @@ const weekDays = [
 const Forecast = ({ data }) => {
   const dayInWeek = new Date().getDay();
   const forecastDays = weekDays
-    .splice(dayInWeek, weekDays.length)
+    .slice(dayInWeek, weekDays.length)
     .concat(weekDays.slice(0, dayInWeek));
-  console.log(forecastDays);
   return (
     <>
-      <label className="title">Daily</label>
+      <label className="title text-gray-50">Daily</label>
       <Accordion allowZeroExpanded>
-        {data.list.slice(0, 7).map((item, index) => {
-          <AccordionItem key={index}>
+        {data.list.splice(0, 7).map((item, idx) => (
+          <AccordionItem key={idx}>
             <AccordionItemHeading>
               <AccordionItemButton>
-                <div className="dailyItem">
+                <div className="dailyItem border-b-4 bg-white mb-1 rounded-md drop-shadow-md">
                   <img
                     alt="weatherImage"
                     className="weatherIcon"
                     src={`icons/${item.weather[0].icon}.png`}
                   />
-                  <label className="days">{forecastDays[index]}</label>
+                  <label className="days mr-4 ">{forecastDays[idx]}</label>
                   <label className="dayDescription">
                     {item.weather[0].description}
                   </label>
@@ -77,8 +76,8 @@ const Forecast = ({ data }) => {
                 </div>
               </div>
             </AccordionItemPanel>
-          </AccordionItem>;
-        })}
+          </AccordionItem>
+        ))}
       </Accordion>
     </>
   );

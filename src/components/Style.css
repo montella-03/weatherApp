@@ -70,6 +70,7 @@
     cursor: pointer;
     font-size: 14px;
     padding: 5px 20px;
+    box-shadow: 10px -2px 20px 2px rgba(0 0 0 /30%);
 
 
 }
@@ -78,7 +79,7 @@
 
 }
 .days{
-    color:midnightblue;
+    color:gray;
     flex:1 1;
     font-weight: 600;
     margin-left: 15px;;
@@ -86,10 +87,11 @@
 .dayDescription{
     flex:1 1;
     margin-right: 15px;
+    color:gray;
     
 }
 .daysRangeTemp{
-    color:darkgreen;
+    color:gray;
 }
 .dailyDetailsGrid{
     grid-row-gap:0;
@@ -108,9 +110,12 @@
     align-items: center;
 }
 .gridItem label:first-child{
-    color: blue;
+    color: rgb(179, 178, 178);
+    font-family: monospace;
 
 }
 .gridItem label:last-child{
-    color: midnightblue;
+    color: rgb(187, 185, 185);
+    font-weight: 600;
+    font-family: monospace;
 }

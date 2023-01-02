@@ -12,11 +12,9 @@ function App() {
     const [lat, lon] = searchData.value.split(" ");
 
     const currentWeatherFetch = fetch(
-      `${currentUrl}/weather?lat=${lat}&lon=${lon}&appid=${ApiKey}&units=metric`
-    );
+      `${currentUrl}/weather?lat=${lat}&lon=${lon}&appid=${ApiKey}&units=metric`);
     const forecastFetch = fetch(
-      `${currentUrl}/forecast?lat=${lat}&lon=${lon}&appid=${ApiKey}&units=metric`
-    );
+      `${currentUrl}/forecast?lat=${lat}&lon=${lon}&appid=${ApiKey}&units=metric`);
     Promise.all([currentWeatherFetch, forecastFetch])
       .then(async (response) => {
         const weatherResponse = await response[0].json();
@@ -27,7 +25,7 @@ function App() {
       })
       .catch((error) => console.log(error));
   };
-  console.log(forecast);
+  
 
   return (
     <div className="App">
