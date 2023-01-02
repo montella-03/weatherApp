@@ -6,11 +6,10 @@ import { useState } from "react";
 
 
 function App() {
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
   const handleOnSearchChange = (searchData) => {
-
-    const [weather, setWeather] = useState(null);
-    const [forecast, setForecast] = useState(null);
-    const [lat, lon] = searchData.value.split("");
+    const [lat, lon] = searchData.value.split(" ");
 
     const currentWeatherFetch = fetch(
       `${currentUrl}/weather?lat=${lat}&lon=${lon}&appid=${ApiKey}`
@@ -23,15 +22,19 @@ function App() {
         const weatherResponse = await response[0].json();
         const forecastResponse = await response[1].json();
 
-        setWeather({city:searchData.label, ...weatherResponse});
-        setForecast({city:searchData.label, ...forecastResponse});
-    })
-  };
+        setCurrentWeather({ city: searchData.label, ...weatherResponse });
+        setForecast({ city: searchData.label, ...forecastResponse });
+      })
+      .catch((error) =>
+        console.log(error));
+  }
+  console.log(currentWeather);
+  console.log(forecast);
 
   return (
     <div className="App">
       <Search onSearchChange={handleOnSearchChange} />
-      <Weather />
+      {currentWeather && <Weather data={currentWeather} />}
     </div>
   );
 }

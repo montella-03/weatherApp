@@ -1,7 +1,7 @@
 import React from "react";
 import "./Style.css";
 
-const Weather = () => {
+const Weather = ({data}) => {
   return (
     <div className="weather ">
       <div className="temperature">
