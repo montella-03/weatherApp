@@ -21,7 +21,7 @@ const weekDays = [
 const Forecast = ({ data }) => {
   const dayInWeek = new Date().getDay();
   const forecastDays = weekDays
-    .slice(dayInWeek, weekDays.length)
+    .splice(dayInWeek, weekDays.length)
     .concat(weekDays.slice(0, dayInWeek));
   console.log(forecastDays);
   return (
