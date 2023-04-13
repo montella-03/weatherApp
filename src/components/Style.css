@@ -92,6 +92,7 @@
 }
 .daysRangeTemp{
     color:gray;
+/*     color:red; */
 }
 .dailyDetailsGrid{
     grid-row-gap:0;
